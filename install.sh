@@ -38,7 +38,10 @@ ensure_homebrew() {
 
 resolve_checkout() {
   local script_dir install_dir
-  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]:-}")" 2>/dev/null && pwd || true)"
+  script_dir=""
+  if [[ -n "${BASH_SOURCE[0]:-}" ]]; then
+    script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd)" || script_dir=""
+  fi
   if [[ -f "${script_dir}/.tailorbird-root" ]]; then
     printf '%s' "$script_dir"
     return

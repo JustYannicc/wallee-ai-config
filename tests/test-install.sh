@@ -7,7 +7,13 @@ test_root="$(mktemp -d)"
 trap 'rm -rf "$test_root"' EXIT
 
 fail() { printf 'FAIL: %s\n' "$1" >&2; exit 1; }
-assert_contains() { rg -F -- "$2" "$1" >/dev/null || fail "$1 does not contain $2"; }
+assert_contains() {
+  if command -v rg >/dev/null 2>&1; then
+    rg -F -- "$2" "$1" >/dev/null
+  else
+    grep -F -- "$2" "$1" >/dev/null
+  fi || fail "$1 does not contain $2"
+}
 
 mkdir -p "$test_root/bin" "$test_root/home" "$test_root/remote-script"
 cp "$repo_dir/tests/fixtures/brew" "$test_root/bin/brew"

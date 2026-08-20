@@ -8,7 +8,13 @@ trap 'rm -rf "$test_root"' EXIT
 
 fail() { printf 'FAIL: %s\n' "$1" >&2; exit 1; }
 assert_file() { [[ -e "$1" || -L "$1" ]] || fail "missing $1"; }
-assert_contains() { rg -F -- "$2" "$1" >/dev/null || fail "$1 does not contain $2"; }
+assert_contains() {
+  if command -v rg >/dev/null 2>&1; then
+    rg -F -- "$2" "$1" >/dev/null
+  else
+    grep -F -- "$2" "$1" >/dev/null
+  fi || fail "$1 does not contain $2"
+}
 
 mkdir -p "$test_root/home/.codex"
 printf 'legacy = true\n' > "$test_root/home/.codex/config.toml"

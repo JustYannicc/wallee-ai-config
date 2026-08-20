@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+printf 'git %s\n' "$*" >> "$TAILORBIRD_TEST_LOG"
+if [[ "$1" == "clone" ]]; then
+  target="${*: -1}"
+  mkdir -p "$target"
+  tar -C "$TAILORBIRD_TEST_REPO" --exclude=.git --exclude=work -cf - . \
+    | tar -C "$target" -xf -
+  mkdir -p "$target/.git"
+fi
+exit 0

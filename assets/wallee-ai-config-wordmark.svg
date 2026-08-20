@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="802" height="96" viewBox="0 0 802 96" role="img" aria-labelledby="title description" xml:space="preserve">
+  <title id="title">Wallee AI Config</title>
+  <desc id="description">Wallee AI Config rendered as a six-line ANSI Shadow wordmark.</desc>
+  <style>text { font-family: Menlo, Monaco, Consolas, monospace; font-size: 11px; font-weight: 700; font-variant-ligatures: none; }</style>
+  <text x="12" y="16" fill="#b85c38">██╗    ██╗ █████╗ ██╗     ██╗     ███████╗███████╗     █████╗ ██╗     ██████╗ ██████╗ ███╗   ██╗███████╗██╗ ██████╗ </text>
+  <text x="12" y="29" fill="#a9633b">██║    ██║██╔══██╗██║     ██║     ██╔════╝██╔════╝    ██╔══██╗██║    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ </text>
+  <text x="12" y="42" fill="#8e6c3e">██║ █╗ ██║███████║██║     ██║     █████╗  █████╗      ███████║██║    ██║     ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗</text>
+  <text x="12" y="55" fill="#727641">██║███╗██║██╔══██║██║     ██║     ██╔══╝  ██╔══╝      ██╔══██║██║    ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║</text>
+  <text x="12" y="68" fill="#567b40">╚███╔███╔╝██║  ██║███████╗███████╗███████╗███████╗    ██║  ██║██║    ╚██████╗╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝</text>
+  <text x="12" y="81" fill="#34452b"> ╚══╝╚══╝ ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝╚══════╝    ╚═╝  ╚═╝╚═╝     ╚═════╝ ╚════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝  </text>
+</svg>

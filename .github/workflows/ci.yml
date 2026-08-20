@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check shell syntax
+        run: bash -n install.sh scripts/configure.sh tests/test-configure.sh tests/test-install.sh tests/fixtures/*
+      - name: Run ShellCheck
+        run: shellcheck install.sh scripts/configure.sh tests/test-configure.sh tests/test-install.sh tests/fixtures/*
+      - name: Verify generated assets and installer behavior
+        run: |
+          tests/test-configure.sh
+          tests/test-install.sh

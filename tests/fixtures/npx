@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+printf 'npx %s\n' "$*" >> "$TAILORBIRD_TEST_LOG"

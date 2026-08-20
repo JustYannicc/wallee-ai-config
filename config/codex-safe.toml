@@ -1,0 +1,26 @@
+# Public-safe projection of Yannic's Codex preferences.
+# Existing files are backed up before this profile is linked.
+model = "gpt-5.6-sol"
+model_reasoning_effort = "high"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+personality = "pragmatic"
+approvals_reviewer = "user"
+
+[apps._default]
+default_tools_approval_mode = "prompt"
+destructive_enabled = false
+open_world_enabled = false
+
+[desktop]
+preventSleepWhileRunning = true
+followUpQueueMode = "steer"
+show-context-window-usage = true
+keepRemoteControlAwakeWhilePluggedIn = true
+selected-avatar-id = "codex"
+dock-icon-preference = "codex-system"
+reduced-motion-preference = "system"
+open-local-url-in-target-preference = "external-browser"
+avatar-overlay-mascot-width-px = 80
+conversationDetailMode = "STEPS_COMMANDS"
+enabled-reasoning-efforts = ["low", "medium", "high", "xhigh"]

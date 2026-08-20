@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+printf 'brew %s\n' "$*" >> "$TAILORBIRD_TEST_LOG"
+[[ "$1 $2 $3" == "list --formula git" ]] && exit 1
+exit 0

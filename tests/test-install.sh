@@ -15,12 +15,13 @@ assert_contains() {
   fi || fail "$1 does not contain $2"
 }
 
-mkdir -p "$test_root/bin" "$test_root/home" "$test_root/remote-script"
+mkdir -p "$test_root/bin" "$test_root/home" "$test_root/zendesk-home" "$test_root/remote-script"
 cp "$repo_dir/tests/fixtures/brew" "$test_root/bin/brew"
+cp "$repo_dir/tests/fixtures/codex" "$test_root/bin/codex"
 cp "$repo_dir/tests/fixtures/git" "$test_root/bin/git"
 cp "$repo_dir/tests/fixtures/uname" "$test_root/bin/uname"
 cp "$repo_dir/install.sh" "$test_root/remote-script/install.sh"
-chmod +x "$test_root/bin/brew" "$test_root/bin/git" "$test_root/bin/uname"
+chmod +x "$test_root/bin/brew" "$test_root/bin/codex" "$test_root/bin/git" "$test_root/bin/uname"
 : > "$test_root/commands.log"
 
 PATH="$test_root/bin:$PATH" \
@@ -38,5 +39,18 @@ TAILORBIRD_TEST_REPO="$repo_dir" \
 assert_contains "$test_root/commands.log" "brew install git"
 assert_contains "$test_root/commands.log" "git clone --depth 1 https://github.com/JustYannicc/wallee-ai-config.git $test_root/checkout"
 assert_contains "$test_root/commands.log" "brew bundle install --no-upgrade --file $test_root/checkout/Brewfile"
+
+installer_source="$(<"$test_root/remote-script/install.sh")"
+: > "$test_root/zendesk-commands.log"
+PATH="$test_root/bin:$PATH" \
+HOME="$test_root/zendesk-home" \
+TAILORBIRD_BREW_BIN="$test_root/bin/brew" \
+TAILORBIRD_INSTALL_DIR="$test_root/zendesk-checkout" \
+TAILORBIRD_TEST_LOG="$test_root/zendesk-commands.log" \
+TAILORBIRD_TEST_REPO="$repo_dir" \
+  /bin/bash -c "$installer_source" -- \
+  --safe --with-zendesk --skip-skills --yes
+
+assert_contains "$test_root/zendesk-commands.log" "codex mcp add zendesk -- npx -y @fruggr/zendesk-mcp-server wallee --namespace tickets --mode single"
 
 printf 'PASS: remote one-command bootstrap reaches the safe configured state\n'

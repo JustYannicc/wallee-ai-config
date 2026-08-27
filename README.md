@@ -54,7 +54,13 @@ It also installs the standard suite dependencies `grilling` and `research`, plus
 
 ## Zendesk is opt-in
 
-The default setup skips Zendesk. After approval, rerun the local configurator:
+The default setup skips Zendesk. After approval, install everything with Zendesk in one command:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JustYannicc/wallee-ai-config/main/install.sh)" -- --with-zendesk
+```
+
+Or add Zendesk to an existing setup:
 
 ```bash
 ~/.local/share/wallee-ai-config/scripts/configure.sh --with-zendesk

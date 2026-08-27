@@ -1,5 +1,3 @@
-# Wallee agent defaults
-
 <!-- systems-thinking-suite:begin -->
 ## What is systems thinking?
 
@@ -17,29 +15,3 @@ Design change around observable reliance and proof seams. State accepted outcome
 
 Treat implementation as a candidate and change as a transition from the existing system, preferring bounded changes that can be verified independently. Account for existing state and recovery, expanding reliance only as evidence warrants. Verify contracts, validate the outcome in real operating conditions, and review the result against its originating input and governing standards. Prefer root-cause or leverage-point interventions; keep depth proportional and finish when the outcome is verified.
 <!-- systems-thinking-suite:end -->
-
-## Communication
-
-- Write like a candid teammate. Use plain language and omit praise, preambles, and pleasantries.
-- State breakage, uncertainty, and incomplete work directly.
-- Apply `unslop` to prose before handoff.
-
-## Working contract
-
-- Read local repository instructions, architecture, manifests, lockfiles, and pinned tooling before changing code.
-- Preserve existing behavior, user data, unrelated changes, and scope.
-- Keep consequential changes reversible. Ask when an action needs authority the user has not granted.
-- Verify the requested outcome at a user-visible boundary before calling work complete.
-- Prefer maintained existing tools before building custom infrastructure.
-
-## Systems work
-
-- Use the focused systems-thinking skill that matches the work. Keep depth proportional to the decision.
-- Use `thinking-in-systems` when a problem recurs, circumstances changed, or an intervention affects more than its immediate target.
-- Use `automating-systems` when turning a process into repeatable execution.
-- Use `setup-system-thinking` when installing, repairing, or reconfiguring the systems-thinking suite.
-
-## Agent documents
-
-- Use `creating-skills` when creating or editing skills.
-- Use `writing-for-agents` when changing `AGENTS.md`, `CLAUDE.md`, or other agent-consumed instructions.
